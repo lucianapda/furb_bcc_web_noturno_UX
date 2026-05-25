@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trabalho</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/headerCSS.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="../css/table.css">
+</head>
+
+<body>
+    <header id="cabecalho" class="header">
+    </header>
+    <nav>
+    </nav>
+    <article id="conteudo" class="content">
+    </article>
+    <footer id="rodape" class="footer">
+    </footer>
+
+    <script src="../js/login.js"></script>
+    <script src="../js/erro.js"></script>
+    <script src="../js/treinos.js"></script>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('cabecalho').innerHTML = data;
+                document.getElementById("nomeHeader").textContent = getUsuarioLogado()?.nome || "Usuário";
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('rodape').innerHTML = data;
+            });
+        fetch('telaTreino.html')
+            .then(r => r.text())
+            .then(data => {
+                document.getElementById('conteudo').innerHTML = data;
+                document.getElementById("nomeUsuario").textContent = getUsuarioLogado()?.nome || "Usuário";
+                iniciaTreino();
+            });
+    </script>
+</body>
+</html>

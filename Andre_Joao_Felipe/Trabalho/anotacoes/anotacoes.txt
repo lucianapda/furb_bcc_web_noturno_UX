@@ -1,0 +1,69 @@
+Componentes Do Formulário
+
+O formulário de treino precisa ter pelo menos 5 campos e 3 tipos diferentes. Um conjunto bem defensável seria:
+
+Campo	Tipo HTML	Material Design
+Nome do treino	text	M3 Text field
+Grupo muscular	select	M3 Menu/select field
+Séries	number	M3 Text field numérico
+Repetições	number	M3 Text field numérico
+Intensidade	select	M3 Select/menu
+Treino ativo	checkbox	M3 Checkbox
+Observações	textarea	M3 Text field multiline
+Isso passa tranquilo do mínimo.
+
+Botões
+
+No modal/formulário:
+
+Botão	Função	Material Design
+Salvar	Valida e salva o treino	M3 Filled button
+Limpar	Limpa os campos do formulário	M3 Text button ou Outlined button
+Fechar modal	Fecha o card/dialog	M3 Icon button
+O botão Adicionar treino fora do modal pode ser um M3 Filled button, porque é a ação principal da tela.
+
+Modal/Card
+
+O formulário pode ficar dentro de um modal visualmente tratado como uma superfície/card:
+
+Elemento	Material Design
+Fundo escurecido	M3 Dialog scrim
+Caixa do formulário	M3 Dialog/Card surface
+Título “Treino”	M3 Dialog headline
+Campos agrupados	M3 Form layout
+Botões no rodapé	M3 Dialog actions
+Na apresentação, você pode chamar de “modal/dialog com superfície baseada em card”.
+
+Tabela
+
+A tabela deve seguir Material 2 Data Table:
+
+Parte da tabela	Material Design 2
+Cabeçalho da tabela	Header row
+Nomes das colunas	Column headers
+Linhas de dados	Data rows
+Coluna de ações	Row actions
+Paginação	Table pagination
+Ordenação	Sortable columns
+Contador/registros	Data table footer/pagination
+Colunas sugeridas:
+
+Coluna	Observação
+Nome	Texto
+Grupo muscular	Texto
+Séries	Número, alinhado à direita ou centro
+Repetições	Número, alinhado à direita ou centro
+Intensidade	Texto/chip
+Status	Ativo/Inativo
+Ações	Editar/Excluir
+Validações JS
+
+Duas obrigatórias, mas dá para ter mais:
+
+Validação	Campo
+Nome obrigatório e mínimo 3 caracteres	Nome
+Séries maior que zero e número inteiro	Séries
+Repetições maior que zero e número inteiro	Repetições
+Grupo muscular obrigatório	Grupo
+Intensidade obrigatória	Intensidade
+Primeiro alinhamento: teu escopo pode ser exatamente isso. Depois a gente pensa em melhorias como filtro, busca, chips bonitos, responsividade melhor, destaque visual e documento “de-para”.

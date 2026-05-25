@@ -1,0 +1,250 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* VARIÁVEIS */
+:root {
+    --azul_claro: #0044E1;
+    --azul_escuro: #001EFF;
+
+    --branco: #FFFFFF;
+
+    --cinza: #AFB9C1;
+    --cinza_login: #FAF9F5;
+    --cinza_escuro: #6b6b6b;
+
+    --font_login: 'anthropicSans', sans-serif;
+}
+
+/* HEADER */
+header
+{
+    height: 110px;
+
+    background: var(--azul_claro);
+
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: center;
+
+    padding: 0 32px;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* LOGO */
+.logo
+{
+    justify-self: start;
+
+    color: var(--branco);
+
+    text-decoration: none;
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* MENU */
+.menu
+{
+    justify-self: center;
+}
+
+.menu ul
+{
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border-radius: 999px;
+
+    backdrop-filter: blur(8px);
+}
+
+/* BOTÕES MENU */
+.menu a
+{
+    color: var(--branco);
+
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    padding: 14px 22px;
+
+    border-radius: 999px;
+
+    transition: all 0.2s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+}
+
+/* HOVER MENU */
+.menu a:hover
+{
+    background: rgba(255, 255, 255, 0.18);
+}
+
+/* CLIQUE MENU */
+.menu a:active
+{
+    transform: scale(0.97);
+}
+
+/* BOTÃO MENU ATIVO */
+.menu a.active
+{
+    background: var(--branco);
+
+    color: var(--azul_claro);
+
+    font-weight: 600;
+}
+
+/* USER AREA */
+.user-area
+{
+    justify-self: end;
+
+    display: flex;
+    align-items: center;
+}
+
+/* BOTÃO USUÁRIO */
+.dropdown-user
+{
+    position: relative;
+}
+
+.dropdown-user a
+{
+    color: var(--branco);
+
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    padding: 14px 22px;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    border-radius: 999px;
+
+    transition: all 0.2s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+}
+
+/* HOVER USER */
+.dropdown-user a:hover
+{
+    background: rgba(255, 255, 255, 0.28);
+}
+
+/* CLIQUE USER */
+.dropdown-user a:active
+{
+    transform: scale(0.97);
+}
+
+/* SUBMENU USER */
+.submenu-user
+{
+    position: absolute;
+
+    top: 115%;
+    right: 0;
+
+    list-style: none;
+
+    min-width: 180px;
+
+    padding: 8px;
+
+    background: var(--azul_claro);
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    transition: all 0.25s ease;
+}
+
+/* ABRIR DROPDOWN */
+.dropdown-user:hover .submenu-user
+{
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+/* ITENS DROPDOWN */
+.submenu-user a
+{
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 12px 16px;
+
+    border-radius: 12px;
+
+    color: var(--branco);
+
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+}
+
+/* BOTÃO SAIR */
+.submenu-user li:last-child a
+{
+    background: var(--branco);
+
+    color: #d32f2f;
+}
+
+/* HOVER BOTÃO SAIR */
+.submenu-user li:last-child a:hover
+{
+    transform: scale(0.98);
+}
+
+/* ÍCONES */
+.material-symbols-outlined
+{
+    font-size: 22px;
+}

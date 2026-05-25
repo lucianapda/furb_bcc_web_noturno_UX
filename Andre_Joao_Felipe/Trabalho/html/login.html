@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Início</title>
+</head>
+
+<body class="login-page">
+
+    <div class="titulo-login">
+        <div class="login-logo">Fit Manager</div>
+        <p class="login-subtitulo">Acesse sua conta para gerenciar seus treinos.</p>
+
+        <div class="container-login">
+            <form class="form-login">
+                <div class="input-group">
+                    <input id="EDemail" type="email" required placeholder=" ">
+                    <label for="EDemail">Insira seu e-mail</label>
+                
+                    <span class="error-icon">!</span>
+                    <small class="error-text"></small>
+                </div>
+                
+                <div class="input-group">
+                    <input id="EDsenha" type="password" required placeholder=" ">
+                    <label for="EDsenha">Insira sua senha</label>
+                
+                    <span class="error-icon">!</span>
+                    <small class="error-text"></small>
+                </div>
+                <div class="login-opcoes">
+                    <label class="lembrar-me">
+                        <input type="checkbox" id="lembrarMe">
+                        <span>Lembrar-me</span>
+                    </label>
+                    <a href="#" class="esqueceu-senha">Esqueceu sua senha?</a>
+                </div>
+                <button type="button" class="btn" onclick="iniciaLogin()">Entrar</button>
+            </form>
+            <p class="cadastro-link">Nao tem conta? <a href="#">Cadastrar-se</a></p>
+        </div>
+    </div>
+        <footer id="rodape" class="footer">
+        </footer>
+    <script src="../js/erro.js"></script>    
+    <script src="../js/login.js">   
+    </script>
+<script>
+    // carrega o footer
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('rodape').innerHTML = data;
+        });
+</script>
+<script>
+    window.onload = function () {
+        carregaNoLogin();
+    };
+</script>
+</body>
+</html>

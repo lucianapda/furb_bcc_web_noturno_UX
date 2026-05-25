@@ -1,0 +1,441 @@
+:root {
+    /* VARIÁVEIS DE CORES */
+    --azul_claro: #0044E1;
+    --azul_escuro: #001EFF;
+    --azul_mais_escuro: #0044E1;
+    --branco: #FFFFFF;
+    --cinza: #AFB9C1;
+    --cinza_login: #FAF9F5;
+    --cinza_escuro: #6b6b6b;
+    --font_login: 'anthropicSans', sans-serif;
+}
+
+@font-face {
+    font-family: 'anthropicSans';
+    src: url('../fonts/Serifa.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* PRINCIPAIS */
+
+body {
+    font-family: var(--font_login);
+    background-color: var(--cinza_login);
+    color: var(--cinza_escuro);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /*flex: 1;*/
+}
+
+input,
+select,
+textarea {
+    padding: 10px;
+    border: 1px solid var(--cinza);
+    border-radius: 10px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+    height: 43px;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border: 1px solid var(--cinza_escuro);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+/*LOGIN.HTML*/
+
+/* ========================= LOGIN PAGE ========================= */
+.login-page {
+    background-color: var(--cinza_login);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* CARD */
+.container-login {
+    width: 100%;
+    max-width: 560px;
+    padding: 56px 40px 40px;
+    background-color: var(--branco);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* LOGO */
+.login-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--azul_escuro);
+}
+
+/* SUBTÍTULO */
+.login-subtitulo {
+    font-size: 15px;
+    margin-bottom: 18px;
+    color: var(--cinza_escuro);
+}
+
+/* ========================= INPUT M3 CORRIGIDO (SEM ESPAÇO BUGADO) ========================= */
+.input-group {
+    position: relative;
+    margin-bottom: 14px;
+}
+
+/* INPUT - CENTRALIZAÇÃO PERFEITA */
+.input-group input,
+.input-group select {
+    width: 100%;
+    height: 46px;
+    padding: 18px 14px 18px 14px;
+    /* CORREÇÃO PRINCIPAL */
+    font-size: 16px;
+    line-height: normal;
+    border-radius: 12px;
+    border: 2px solid var(--cinza);
+    background: var(--branco);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input-group select {
+    padding: 0 14px;
+}
+
+/* LABEL dentro do input */
+.input-group label {
+    position: absolute;
+    left: 14px;
+    top: 16px;
+    color: var(--cinza);
+    font-size: 16px;
+    background: var(--branco);
+    padding: 0 6px;
+    pointer-events: none;
+}
+
+/* FLOAT correto */
+.input-group input:focus+label,
+.input-group input:not(:placeholder-shown)+label,
+.input-group select+label {
+    top: 0;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: var(--azul_claro);
+}
+
+/* foco */
+.input-group input:focus,
+.input-group select:focus {
+    border-color: var(--azul_claro);
+}
+
+/* ========================= OPÇÕES ========================= */
+.login-opcoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 20px;
+}
+
+.lembrar-me {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--cinza_escuro);
+}
+
+.lembrar-me input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--azul_claro);
+    margin: 0;
+    padding: 0;
+}
+
+.esqueceu-senha {
+    color: var(--azul_claro);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ========================= BOTÃO ========================= */
+.btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--azul_claro);
+    color: var(--branco);
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--azul_escuro);
+    transform: scale(1.02);
+}
+
+/* ========================= CADASTRO ========================= */
+.cadastro-link {
+    margin-top: 28px;
+    font-size: 15px;
+    color: var(--cinza_escuro);
+}
+
+.cadastro-link a {
+    color: var(--azul_claro);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ========================= LAYOUT ========================= */
+.titulo-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 48px 20px;
+}
+
+/* ========================= ERRO M3 ========================= */
+/* INPUT ERRO */
+.input-group.error input {
+    border-color: #B3261E;
+}
+
+/* LABEL ERRO */
+.input-group.error label {
+    color: #B3261E !important;
+}
+
+/* TEXTO ERRO */
+.error-text {
+      display: none;
+    margin-top: -8px;  
+    margin-left: 14px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #B3261E;
+    text-align: left;
+}
+
+/* MOSTRAR TEXTO */
+.input-group.error .error-text {
+    display: block;
+}
+
+/* ÍCONE */
+.error-icon {
+    display: none;
+    position: absolute;
+    right: 14px;
+    top: 13px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #B3261E;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+/* MOSTRAR ÍCONE */
+.input-group.error .error-icon {
+    display: flex;
+}
+
+/* HEADER CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font_login);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #001EFF;
+    padding: 15px 40px;
+    color: white;
+}
+
+.left-area {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+#usuarioHeade
+/* MENU */
+
+.menu>ul {
+    list-style: none;
+    display: flex;
+}
+/*
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 8px 12px;
+    display: block;
+}
+*/
+/* DROPDOWN */
+
+.dropdown {
+    position: relative;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #0044E1;
+    list-style: none;
+    border-radius: 6px;
+    min-width: 160px;
+    display: none;
+    padding: 5px 0;
+}
+
+.submenu li {
+    display: block;
+}
+
+.submenu li a {
+    padding: 10px 15px;
+}
+
+.submenu li:hover {
+    background: #0A02E0;
+}
+
+
+/* mantém aberto ao passar o mouse */
+.dropdown:hover .submenu {
+    display: block;
+}
+
+/* USUARIO */
+/*
+.user-area {
+    background: #0044E1;
+    padding: 8px 15px;
+    border-radius: 6px;
+}
+*/
+/* DROPDOWN USUÁRIO */
+
+.user-area ul {
+    list-style: none;
+}
+
+.dropdown-user {
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.dropdown-user a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+}
+
+/* SUBMENU */
+
+.submenu-user {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: #0044E1;
+    border-radius: 6px;
+    min-width: 120px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px);
+    transition: 0.2s ease;
+}
+
+.submenu-user li {
+    padding: 10px 15px;
+}
+
+
+.submenu-user a {
+    color: white;
+}
+
+/* ATIVAÇÃO DO MENU */
+
+.dropdown-user:hover .submenu-user {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* FOOTER */
+
+.footer {
+    background: #001EFF;
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    font-family: var(--font_login);
+    margin-top: auto;
+    width: 100%;
+}
+
+.login-page .footer {
+    align-self: stretch;
+}
+
+.footer-content {
+    font-size: 14px;
+}
