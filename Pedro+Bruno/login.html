@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - GymRutz</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="corpo-login">
+    <div class="caixa-login">
+        <div class="login-topo">
+            <h1>GymRutz</h1>
+            <p>Acesse sua conta para treinar</p>
+        </div>
+        <div class="form-login">
+
+            <!-- INPUT USUÁRIO -->
+            <div class="md-input-group">
+                <input
+                    type="text"
+                    id="username"
+                    class="md-input"
+                    placeholder=" "
+                    required>
+
+                <label class="md-label">
+                    Usuário
+                </label>
+            </div>
+
+            <!-- INPUT SENHA -->
+            <div class="md-input-group">
+                <input
+                    type="password"
+                    id="password"
+                    class="md-input"
+                    placeholder=" "
+                    required>
+                <label class="md-label">
+                    Senha
+                </label>
+            </div>
+
+            <!-- CHECKBOX -->
+            <div class="login-options">
+                <label class="remember-label">
+                    <input type="checkbox" id="rememberMe">
+                    <span>Lembrar-me</span>
+                </label>
+            </div>
+
+            <!-- BOTÃO LOGIN -->
+            <button id="btnLogin" class="md-btn md-btn-contained login-btn">
+                Entrar
+            </button>
+            <div class="ou">
+                ou
+            </div>
+
+            <!-- BOTÃO CADASTRO -->
+            <button id="btnCadastrar" class="md-btn md-btn-outlined login-btn">
+                Criar nova conta
+            </button>
+
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div id="forgotModal" class="modal-simples" style="display:none">
+
+        <div class="modal-conteudo">
+
+            <h3>Recuperar senha</h3>
+            <p>Informe seu usuário:</p>
+            <div class="md-input-group">
+
+                <input
+                    type="text"
+                    id="recoverUser"
+                    class="md-input"
+                    placeholder=" ">
+
+                <label class="md-label">
+                    Usuário
+                </label>
+
+            </div>
+            <div class="modal-actions">
+
+                <button id="btnRecover" class="md-btn md-btn-contained">
+                    Enviar
+                </button>
+
+                <button id="btnCloseModal" class="md-btn md-btn-outlined">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="login.js"></script>
+
+</body>
+</html>

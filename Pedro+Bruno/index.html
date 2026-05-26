@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Treino - GymRutz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="topo">
+        <div class="logo" id="logoBtn">
+            <span>🏋️</span> GymRutz
+        </div>
+        <div class="usuario">
+            <span>💪</span>
+            <span id="headerUser">Atleta</span>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="menu" id="sidebar">
+            <p>MENU</p>
+            <button class="link-menu" data-section="home">🏠 Início</button>
+            <button class="link-menu" data-section="exercicios">📋 Ver Treinos</button>
+            <button class="link-menu" data-section="novo">➕ Novo Exercício</button>
+            <button class="link-menu" data-section="stats">📈 Evolução</button>
+            <button class="link-menu" data-section="sobre">ℹ️ Sobre</button>
+            <br>
+            <a href="login.html" class="link-menu">🚪 Sair</a>
+        </div>
+
+        <div class="conteudo">
+
+            <!-- Seção Home (Cards mantidos conforme original, Tabela atualizada para MD2) -->
+            <div class="tela active" id="section-home">
+                <h1>BORA TREINAR!</h1>
+                <div class="cards-topo">
+                    <div class="card">
+                        <p>Exercícios</p>
+                        <h2 id="statTotal">0</h2>
+                    </div>
+                    <div class="card">
+                        <p>Músculos</p>
+                        <h2 id="statGrupos">0</h2>
+                    </div>
+                    <div class="card">
+                        <p>Carga Máx</p>
+                        <h2 id="statMaxPeso">0kg</h2>
+                    </div>
+                </div>
+
+                <!-- Tabela MD2 -->
+                <div class="md-table-container">
+                    <div class="md-table-header">Últimos Treinos</div>
+                    <table class="md-data-table">
+                        <thead>
+                            <tr>
+                                <th>NOME</th>
+                                <th>GRUPO</th>
+                                <th class="numeric">SÉRIES</th>
+                                <th class="numeric">PESO (KG)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="homeTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Seção Exercícios (Tabela MD2) -->
+            <div class="tela" id="section-exercicios">
+                <h1>MEUS EXERCÍCIOS</h1>
+                <div class="md-table-container">
+                    <div class="md-table-toolbar">
+                        <select id="filtroGrupo" class="md-select-inline">
+                            <option value="">Filtrar Grupo...</option>
+                            <option value="peito">Peito</option>
+                            <option value="costas">Costas</option>
+                            <option value="pernas">Pernas</option>
+                        </select>
+                    </div>
+                    <table class="md-data-table">
+                        <thead>
+                            <tr>
+                                <th>EXERCÍCIO</th>
+                                <th>GRUPO</th>
+                                <th class="numeric">SÉRIES</th>
+                                <th class="numeric">REPS</th>
+                                <th class="numeric">PESO</th>
+                                <th>AÇÕES</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mainTableBody"></tbody>
+                    </table>
+                    <div id="emptyState" class="md-empty-state" style="display:none">
+                        Nada cadastrado ainda.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção Novo (Formulário com 6 campos e 3 tipos: text, select, number) -->
+            <div class="tela" id="section-novo">
+                <h1>CADASTRAR NOVO</h1>
+                <div class="md-card-form">
+                    <form id="formTreino">
+                        <div class="md-input-group">
+                            <input type="text" id="nome" class="md-input" placeholder=" " required>
+                            <label class="md-label">Nome do Exercício</label>
+                        </div>
+
+                        <div class="md-input-group">
+                            <select id="grupo" class="md-input" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="peito">Peito</option>
+                                <option value="costas">Costas</option>
+                                <option value="pernas">Pernas</option>
+                                <option value="ombros">Ombros</option>
+                                <option value="biceps">Bíceps</option>
+                                <option value="triceps">Tríceps</option>
+                            </select>
+                            <label class="md-label">Grupo Muscular</label>
+                        </div>
+
+                        <div class="md-form-row">
+                            <div class="md-input-group">
+                                <input type="number" id="series" class="md-input" placeholder=" " required>
+                                <label class="md-label">Séries</label>
+                            </div>
+                            <div class="md-input-group">
+                                <input type="number" id="reps" class="md-input" placeholder=" " required>
+                                <label class="md-label">Repetições</label>
+                            </div>
+                        </div>
+
+                        <div class="md-input-group">
+                            <input type="number" id="peso" class="md-input" placeholder=" " required>
+                            <label class="md-label">Peso (kg)</label>
+                        </div>
+
+                        <div class="md-input-group">
+                            <input type="text" id="obs" class="md-input" placeholder=" ">
+                            <label class="md-label">Observações</label>
+                        </div>
+
+                        <div class="md-form-actions">
+                            <button type="button" id="btnSalvar" class="md-btn md-btn-contained">SALVAR</button>
+                            <button type="button" id="btnLimpar" class="md-btn md-btn-outlined">LIMPAR</button>
+                            <button type="button" id="btnCancelarEdicao" class="md-btn md-btn-text" style="display:none">CANCELAR</button>
+                        </div>
+                        <input type="hidden" id="editId">
+                    </form>
+                </div>
+            </div>
+
+            <!-- Demais seções mantidas -->
+            <div class="tela" id="section-stats">
+                <h1>MINHA EVOLUÇÃO</h1>
+                <div class="cards-topo" id="bigStatsRow"></div>
+                <div class="bloco">
+                    <h3>Total por Grupo</h3>
+                    <div id="statsGroupContent"></div>
+                </div>
+            </div>
+
+            <div class="tela" id="section-sobre">
+                <h1>SOBRE</h1>
+                <p>Sistema feito para aula de Programação Web.</p>
+                <p>Alunos: Pedro Heitor e Bruno Pedron</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="toast"></div>
+    <script src="app.js"></script>
+</body>
+
+</html>
