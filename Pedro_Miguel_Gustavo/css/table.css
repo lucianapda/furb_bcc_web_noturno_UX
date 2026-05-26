@@ -1,0 +1,267 @@
+#table-section h2 {
+    color: var(--primary-orange);
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--light-orange);
+    padding-bottom: 10px;
+}
+
+#tasks-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tasks-table thead th {
+    background-color: var(--light-orange);
+    color: var(--primary-orange);
+    text-align: left;
+    height: 56px;
+    padding: 0 32px 0 16px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--primary-orange);
+    vertical-align: middle;
+}
+
+#tasks-table tbody td {
+    height: 52px;
+    padding: 0 32px 0 16px;
+    border-bottom: 1px solid var(--light-orange);
+    color: var(--dark-text);
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+#tasks-table thead th {
+    font-weight: 505;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+
+#tasks-table tbody td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+
+#table-container {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--light-orange);
+}
+
+#tasks-table tbody tr:hover {
+    background-color: var(--light-orange);
+    transition: background-color 0.2s ease;
+}
+
+#tasks-table tbody td:last-child {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    white-space: nowrap;
+}
+
+#tasks-table tbody tr:last-child td {
+    border-bottom: none; 
+}
+
+.functions-button-row {
+    min-height: 40px;
+    padding: 0 16px;
+    margin-right: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease, border-color 0.2s ease;
+}
+
+.functions-button-row:focus-visible {
+    outline: 2px solid rgba(255, 123, 0, 0.45);
+    outline-offset: 2px;
+}
+
+.functions-button-row:active {
+    transform: translateY(1px);
+}
+
+.functions-button-row img {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.edit-task-btn:hover {
+    background-color: var(--dark-orange);
+}
+.delete-task-btn {
+    width: 40px;
+    min-width: 40px;
+    padding: 0;
+    justify-content: center;
+    background-color: transparent;
+    color: #b3261e;
+    border-color: rgba(179, 38, 30, 0.48);
+}
+.delete-task-btn:hover {
+    background-color: rgba(179, 38, 30, 0.08);
+    border-color: #b3261e;
+}
+
+.edit-task-btn {
+    background-color: var(--medium-orange);
+    color: var(--white);
+}
+
+.checkbox-column {
+    width: 50px;
+    text-align: center;
+    padding: 0 !important;
+}
+
+.checkbox-column input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.priority-header {
+    position: relative;
+    white-space: nowrap;
+}
+
+.sort-arrow {
+    margin-left: 8px;
+    color: var(--primary-orange);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#pagination-bar {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+    padding: 0 18px;
+    border-top: 1px solid var(--light-orange);
+    background: white;
+}
+
+.rows-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+}
+
+.rows-box {
+    min-width: 70px;
+    height: 36px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0 10px;
+    background: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+.page-counter {
+    font-size: 14px;
+}
+
+.pagination-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.pagination-buttons button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.pagination-buttons button:hover {
+    background: rgba(255, 123, 0, 0.08);
+}
+
+#tasks-table thead th.checkbox-column {
+    text-align: center;
+    padding: 0;
+}
+
+#tasks-table thead th.checkbox-column input {
+    margin: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 900px) {
+    #table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #tasks-table {
+        min-width: 780px;
+    }
+
+    #pagination-bar {
+        min-width: 780px;
+    }
+}
+
+@media (max-width: 600px) {
+    #table-section h2 {
+        font-size: 1.4em;
+    }
+
+    #tasks-table thead th,
+    #tasks-table tbody td {
+        font-size: 13px;
+        padding: 0 16px 0 12px;
+    }
+
+    .functions-button-row {
+        min-height: 36px;
+        padding: 0 12px;
+        font-size: 13px;
+    }
+
+    .delete-task-btn {
+        width: 36px;
+        min-width: 36px;
+    }
+
+    #pagination-bar {
+        padding: 12px;
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: auto;
+    }
+
+    .rows-wrapper,
+    .page-counter,
+    .pagination-buttons {
+        flex-shrink: 0;
+    }
+}

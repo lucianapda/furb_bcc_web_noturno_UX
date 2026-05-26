@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Adopt Cat</title>
+  <link rel="stylesheet" href="../css/principal.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body class="body-cadastro">
+
+<div class="bg-patinhas"></div>
+
+<div class="corpoCadastro">
+  <div class="orelha-direita"></div>
+  <div class="orelha-esquerda"></div>
+
+  <div class="cat-face">
+    <div class="loginInfo">
+      <div class="container">
+
+        <h1 id="bem-vindo">Bem Vindo de Volta</h1>
+        <h2 id="login">Faça login em sua conta</h2>
+
+        <div class="bloco-campo" id="textfield-containerUsuario">
+          <div class="campo-texto" style="display: flex; align-items: center;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqVg_URh9Mvrm3NYaTlCUyiM7r382ohELc1g&s" width="20px" height="20px" style="position: absolute; left: 12px; z-index: 1;"/>
+            <input type="text" id="textfield-inputUsuario" class="entrada-dados" required placeholder=" " style="padding-left: 40px;">
+            <label for="textfield-inputUsuario" class="rotulo" style="left: 40px;">Nome de Usuário</label>
+          </div>
+        </div>
+
+        <div class="bloco-campo" id="textfield-containerSenha">
+          <div class="campo-texto" style="display: flex; align-items: center;">
+            <img src="https://cdn-icons-png.flaticon.com/512/102/102643.png" width="20px" height="20px" style="position: absolute; left: 12px; z-index: 1;"/>
+            <input type="password" id="textfield-input" class="entrada-dados" required placeholder=" " style="padding-left: 40px;">
+            <label for="textfield-input" class="rotulo" style="left: 40px;">Senha</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <input type="checkbox" id="lembrarMe">
+            <label for="lembrarMe" class="lembrarMe">Lembrar-me</label>
+          </div>
+
+          <div class="status-box">
+            <input id="statusIcon" type="checkbox" disabled>
+            <label id="statusLabel">Inativo</label>
+          </div>
+        </div>
+
+        <div class="acoes-botoes">
+          <button type="submit" class="botao principal"
+                  onclick="cadastrar(document.getElementById('textfield-inputUsuario').value, document.getElementById('textfield-input').value)">
+            Entrar
+          </button>
+        </div>
+
+        <div class="login-divisor"></div>
+
+        <div id="semConta">
+          <p>Não tem uma conta ?&nbsp</p><p id="textColorido">Crie aqui</p>
+        </div>
+
+        <div class="rodape">
+          <p id="copyright">Copyright de Adopt-Cat</p>
+          <p id="copyright">Desenvolvido por estudantes da FURB</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../js/backend_cadastro.js"></script>
+</body>
+</html>

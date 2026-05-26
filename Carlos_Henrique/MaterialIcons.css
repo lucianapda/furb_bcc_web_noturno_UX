@@ -1,0 +1,344 @@
+/* Fazer os campos que vamos precisar
+Text Field - ok
+Buttons - ok
+Tabelas
+Card
+As formatacoes para validações (Bordas vermelhas para erros e coisas do tipo) - ok
+MenuNavegação (Tabs ou Navigation)
+Checkbox - ok*/
+
+/* VARIAVEIS PADRÕES */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* MD3 — Paleta primária verde-militar */
+  --md-primary: #4A5E23;
+  --md-primary-hover: #5A7029;
+  --md-primary-active: #38480F;
+  --md-on-primary: #FFFFFF;
+  --md-primary-container: #C5D99A;
+  --md-on-primary-container: #111F00;
+
+  /* Superfícies */
+  --md-surface: #FAFAF4;
+  --md-background: #F3F4EC;
+
+  /* Texto */
+  --md-on-surface: #1A1C16;
+  --md-on-surface-variant: #44483D;
+
+  /* Contorno */
+  --md-outline: #74796B;
+  --md-outline-variant: #C4C8BA;
+
+  /* Erro */
+  --md-error: #B3261E;
+
+  /* MD2 — Tabela */
+  --md2-primary: #636B2F;
+  --md2-surface: #FFFFFF;
+  --md2-divider: #E0E0E0;
+  --md2-on-surface: #212121;
+  --md2-on-surface-secondary: #757575;
+  --md2-row-hover: #F5F5F5;
+
+  --font: 'Roboto', sans-serif;
+}
+
+/* ==============
+     Text Field 
+   ==============*/
+
+.md3-field-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.md3-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.md3-input {
+  width: 100%;
+  height: 56px;
+  padding: 28px 48px 8px 16px;
+  font-size: 16px;
+  font-family: var(--font);
+  color: var(--md-on-surface);
+  background: transparent;
+  border: 1px solid var(--md-outline);
+  border-radius: 4px;
+  outline: none;
+  appearance: none;
+  transition: border-color 200ms, border-width 200ms;
+}
+
+.md3-input::placeholder {
+  color: transparent;
+}
+
+.md3-input:hover:not(:focus) {
+  border-color: var(--md-on-surface);
+}
+
+.md3-input:focus {
+  border: 2px solid var(--md-primary);
+  padding: 28px 47px 8px 15px;
+}
+
+/* Label flutuante */
+.md3-label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-family: var(--font);
+  color: var(--md-on-surface-variant);
+  pointer-events: none;
+  background: var(--md-surface);
+  padding: 0 4px;
+  line-height: 1;
+  transition:
+    top 150ms cubic-bezier(0.2, 0, 0, 1),
+    font-size 150ms cubic-bezier(0.2, 0, 0, 1),
+    color 150ms,
+    transform 150ms;
+}
+
+.md3-input:focus~.md3-label,
+.md3-input:not(:placeholder-shown)~.md3-label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 12px;
+}
+
+.md3-input:not(:focus):not(:placeholder-shown)~.md3-label {
+  color: var(--md-on-surface-variant);
+}
+
+.md3-input:focus~.md3-label {
+  color: var(--md-primary);
+}
+
+/*  ===============
+        CHECKBOX
+    ===============*/
+
+.md3-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--md-on-surface-variant);
+  cursor: pointer;
+  user-select: none;
+}
+
+.md3-checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.md3-checkbox-label input[type="checkbox"]:checked+.checkbox-custom {
+  background: var(--md-primary);
+  border-color: var(--md-primary);
+}
+
+.md3-checkbox-label input[type="checkbox"]:checked+.checkbox-custom::after {
+  content: '';
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg) translateY(-1px);
+  display: block;
+}
+
+/*  ==============
+        BUTTONS 
+    ============== */
+
+.btn-filled {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 100px;
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font);
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: background 150ms;
+  margin-bottom: 1rem;
+}
+
+.btn-filled:hover {
+  background: var(--md-primary-hover);
+}
+
+.btn-filled:active {
+  background: var(--md-primary-active);
+  transform: scale(0.99);
+}
+
+/* Tonal — ação secundária */
+.btn-tonal {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 100px;
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font);
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: background 150ms;
+  margin-bottom: 0.5rem;
+}
+
+.btn-tonal:hover {
+  background: #D0BCFF;
+}
+
+.btn-tonal:active {
+  transform: scale(0.99);
+}
+
+/* Text — ação terciária */
+.btn-text {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 100px;
+  background: transparent;
+  color: var(--md-primary);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font);
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: background 150ms;
+}
+
+.btn-text:hover {
+  background: #F3EFF4;
+}
+
+/* ERROS */
+
+.md3-supporting {
+  font-size: 12px;
+  color: var(--md-error);
+  padding: 0 16px;
+  display: none;
+}
+
+.md3-field-wrapper.error .md3-input {
+  border-color: var(--md-error);
+}
+
+.md3-field-wrapper.error .md3-input:focus {
+  border-color: var(--md-error);
+  border-width: 2px;
+}
+
+.md3-field-wrapper.error .md3-input~.md3-label,
+.md3-field-wrapper.error .md3-input:focus~.md3-label,
+.md3-field-wrapper.error .md3-input:not(:placeholder-shown)~.md3-label {
+  color: var(--md-error);
+}
+
+.md3-field-wrapper.error .md3-supporting {
+  display: block;
+}
+
+/* ===== SCRIM ===== */
+.md3-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms;
+  z-index: 50;
+}
+
+.md3-scrim.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===== DIALOG ===== */
+.md3-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -44%) scale(0.97);
+  background: #FFFBFE;
+  border-radius: 28px;
+  width: min(560px, 90vw);
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 250ms cubic-bezier(0.2, 0, 0, 1),
+    opacity 200ms;
+  z-index: 51;
+}
+
+.md3-dialog.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ===== TÍTULO ===== */
+.dialog-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: #1C1B1F;
+  text-align: left;
+  margin-bottom: 16px;
+  line-height: 1.3;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ===== DIVISOR ===== */
+.dialog-divider {
+  height: 1px;
+  background: #CAC4D0;
+  margin: 0 -24px 20px;
+}
+
+/* ===== CORPO ===== */
+.dialog-body {
+  font-size: 14px;
+  color: #49454F;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ===== BOTÕES ===== */
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}

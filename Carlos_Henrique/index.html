@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escala de Serviço</title>
+
+  <link rel="stylesheet" href="MaterialIcons.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+  <header>
+    <div id="header">
+      <button class="icon-btn" onclick="menuBar()" aria-label="Menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <img class="logo" onclick="goHome()" src="exercito-brasileiro-logo-png_seeklogo-50803-removebg-preview.png"
+        alt="Logo Exército">
+      <h1>Aditamento Online</h1>
+      <div class="infoUsuario">
+        <span class="material-symbols-outlined">account_circle</span>
+        <span id="usuarioNome"></span>
+      </div>
+    </div>
+
+    <div class="hidden" id="menu">
+      <nav id="navLink">
+        <ul>
+          <li>
+            <a href="index.html">
+              <span class="material-symbols-outlined">home</span>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="material-symbols-outlined">person_add</span>
+              Cadastrar
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="material-symbols-outlined">list_alt</span>
+              Lista
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="formCadastro">
+      <h2 class="titulosIndex">Cadastro de Serviço</h2>
+      <form id="form" novalidate>
+        <input type="hidden" id="indexEdit">
+        <div class="md3-field-wrapper" id="wrapperNumero">
+          <div class="md3-field">
+            <input class="md3-input" type="text" id="numero" placeholder=" " required>
+            <label class="md3-label" for="numero">
+              Número de Guerra
+            </label>
+            <span class="field-icon material-symbols-outlined">
+              tag
+            </span>
+          </div>
+          <span class="md3-supporting">Número de Guerra Invalido</span>
+        </div>
+
+        <div class="md3-field-wrapper" id="wrapperNome">
+          <div class="md3-field">
+            <input class="md3-input" type="text" id="nome" placeholder=" " required>
+            <label class="md3-label" for="nome">
+              Nome de Guerra
+            </label>
+            <span class="field-icon material-symbols-outlined">
+              badge
+            </span>
+          </div>
+          <span class="md3-supporting">Nome de Guerra Invalido</span>
+        </div>
+
+        <div class="md3-field-wrapper" id="wrapperCompanhia">
+          <div class="md3-field">
+            <input class="md3-input" list="lista-companhias" id="companhia" name="companhia" placeholder=" " required>
+            <label class="md3-label" for="companhia">
+              Companhia
+            </label>
+            <span class="field-icon material-symbols-outlined">
+              corporate_fare
+            </span>
+
+            <datalist id="lista-companhias">
+              <option value="CCAP">
+              <option value="Primeira Companhia">
+              <option value="Segunda Companhia">
+              <option value="CFGS">
+              <option value="NPOR">
+            </datalist>
+          </div>
+          <span class="md3-supporting">Companhia Invalida</span>
+        </div>
+
+        <div class="md3-field-wrapper" id="wrapperTipoServico">
+          <div class="md3-field">
+            <input class="md3-input" list="lista-servicos" id="tipoServico" name="tipoServico" placeholder=" " required>
+            <label class="md3-label" for="tipoServico">
+              Tipo de Serviço
+            </label>
+            <span class="field-icon material-symbols-outlined">
+              military_tech
+            </span>
+
+            <datalist id="lista-servicos">
+              <option value="Guarda">
+              <option value="Plantão">
+              <option value="Vila Oficiais">
+              <option value="Vila Subtentes/Sargentos">
+              <option value="Motorista">
+            </datalist>
+
+          </div>
+          <span class="md3-supporting">Tipo de Serviço Invalido</span>
+        </div>
+
+        <div class="md3-field-wrapper" id="wrapperData">
+          <div class="md3-field">
+            <input class="md3-input md3-input--date" type="date" id="data" placeholder=" " required>
+            <label class="md3-label md3-label--raised" for="data">
+              Data do Serviço
+            </label>
+            <span class="field-icon material-symbols-outlined">
+              calendar_today
+            </span>
+          </div>
+          <span class="md3-supporting">Data Invalida</span>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn-filled" type="submit">
+            <span class="material-symbols-outlined">
+              save
+            </span>
+            Salvar
+          </button>
+          <button class="btn-tonal" type="button" onclick="limpar()">
+            <span class="material-symbols-outlined">
+              cancel
+            </span>
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section id="secTabela">
+
+      <h2 class="titulosIndex">Lista de Serviços</h2>
+
+      <div class="md2-table-container">
+
+        <table id="table">
+
+          <thead>
+
+            <tr>
+              <th>Nº Guerra</th>
+              <th>Nome</th>
+              <th>Companhia</th>
+              <th>Tipo Serviço</th>
+              <th>Data</th>
+              <th>Ações</th>
+            </tr>
+
+          </thead>
+
+          <tbody id="tabela"></tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+    <div class="md3-scrim" id="scrim" onclick="fecharDialog()"></div>
+
+    <div class="md3-dialog" id="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <h2 class="dialog-title" id="dialog-title">Você deseja excluir?</h2>
+      <div class="dialog-body">
+        Você realmente desjea excluir?.
+      </div>
+      <div class="dialog-actions">
+        <button class="btn-dialog-text" onclick="fecharDialog()">Cancelar</button>
+        <button class="btn-dialog-filled" onclick="fecharDialogConfirm()">Confirmar</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Equipe: Henrique Eberhardt e Carlos Alfredo Isensee</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

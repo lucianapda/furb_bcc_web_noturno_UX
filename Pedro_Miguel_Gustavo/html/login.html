@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">    
+    <title>Login TaskFlow</title>
+</head>
+
+<body>
+    <main>
+        <div id="img-main">
+            <img src="../image.jpg" alt="">
+            <div class="image_text">
+                <h2 class="project-title">TaskFlow</h2>
+                <p class="project-description">TaskFlow é um gerenciador de tarefas simples e eficiente que permite
+                    criar, editar e deletar tarefas para organizar seu dia a dia. Ideal para estudantes, profissionais
+                    ou qualquer pessoa que precise gerenciar suas atividades de forma prática.</p>
+            </div>
+        </div>
+        <div id="login">
+            <div id="title-form">
+                <p>Login</p>
+            </div>
+            <div id="form-login">
+                <div id="user-id" class="input-form field">
+                    <input type="text" name="email" id="input-id" required>
+                    <label for="email">Email</label>
+                    <span class="input-error" id="login-error"></span>
+                </div>
+                
+                <div id="user-password" class="input-form field">
+                    <input type="password" id="input-password" required>
+                    <label for="Password">Senha</label>
+                    <span class="input-error" id="password-error"></span>
+                </div>
+              
+                <div id="remember-me-checkbox" class="field">
+                    <input type="checkbox" name="remember" id="remember">
+                    <label for="remember">Lembrar-me</label>
+                </div>
+                <div id="button-form">
+                    <button type="button" class="btn-contained" onclick="verificarLogin()">Login</button>
+                </div>
+                <div id="links-tab" class="checkbox-and-links">
+                    <div id="forgot-password">
+                        <a href="#">Esqueci minha senha</a>
+                    </div>
+                    <div id="create-account">
+                        <a href="#">Criar nova conta</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../js/login.js"></script>
+</body>

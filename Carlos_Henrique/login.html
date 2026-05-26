@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Escala Militar</title>
+  <link rel="stylesheet" href="MaterialIcons.css">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+</head>
+
+<body>
+
+  <main class="login-main">
+    <div class="login-card">
+
+      <!-- Cabeçalho -->
+      <div class="login-header">
+        <div class="login-logo">
+          <img src="exercito-brasileiro-logo-png_seeklogo-50803-removebg-preview.png" id="logoEx">
+          <!-- <span class="material-symbols-outlined">shield</span> -->
+        </div>
+        <h1 class="login-title">Escala Militar</h1>
+        <p class="login-subtitle">Faça login para continuar</p>
+      </div>
+
+      <form id="loginForm" novalidate>
+
+        <!-- Campo Usuário -->
+        <div class="md3-field-wrapper" id="wrapper-usuario">
+          <div class="md3-field">
+            <input class="md3-input" type="text" id="usuario" name="usuario" placeholder=" " autocomplete="username">
+            <label class="md3-label" for="usuario">Usuário</label>
+            <span class="field-icon material-symbols-outlined">person</span>
+          </div>
+          <span class="md3-supporting">Usuário não encontrado</span>
+        </div>
+
+        <div class="md3-field-wrapper" id="wrapper-senha">
+          <div class="md3-field">
+            <input class="md3-input" type="password" id="senha" name="senha" placeholder=" "
+              autocomplete="current-password">
+            <label class="md3-label" for="senha">Senha</label>
+            <span class="field-icon material-symbols-outlined" id="toggle-senha" role="button" tabindex="0"
+              aria-label="Mostrar senha">visibility</span>
+          </div>
+          <span class="md3-supporting">Senha incorreta</span>
+        </div>
+
+        <div class="login-options">
+          <div class="checkbox-row">
+            <label class="md3-checkbox-label">
+              <input type="checkbox" id="lembrar" class="md3-checkbox">
+              <span class="checkbox-custom"></span>
+              Lembrar-me
+            </label>
+          </div>
+          <button class="btn-forgot" type="button" onclick="recuperarSenha()">Esqueci minha senha</button>
+        </div>
+
+        <button class="btn-filled" type="submit">Entrar</button>
+
+        <div class="divider">
+          <span class="divider-line"></span>
+          <span class="divider-text">ou</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <button class="btn-tonal" type="button" onclick="cadastrarUsuario()">Cadastrar-se</button>
+
+      </form>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

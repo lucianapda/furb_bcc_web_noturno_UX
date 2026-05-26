@@ -1,0 +1,131 @@
+#form-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1d232c;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  z-index: 1000;
+}
+
+#form-container h2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Campos com label flutuante estilo Material */
+.form-field {
+  position: relative;
+  margin-top: 20px;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  padding: 12px 8px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background: #1d232c;
+  color: white;
+  font-size: 1rem;
+}
+
+.form-field label {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  color: #aaa;
+  transition: 0.2s ease all;
+  pointer-events: none;
+  background: #1d232c;
+  padding: 0 4px;
+}
+
+/* Label flutua quando o campo está focado ou preenchido */
+.form-field input:focus ~ label,
+.form-field input:valid ~ label,
+.form-field select:focus ~ label,
+.form-field select:valid ~ label {
+  top: -8px;
+  font-size: 0.8rem;
+}
+
+.supporting-text {
+  font-size: 0.75rem;
+  color: #aaa;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Botões estilo Material */
+.form-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-actions .btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+  border-radius: 999px;
+
+  padding: 12px 20px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+/* Botão salvar */
+.btn-save {
+  background: #6f5aa8;
+  color: #fff;
+}
+
+.btn-save:hover {
+  filter: brightness(1.06);
+}
+
+/* Botão cancelar */
+.btn-close {
+  background: red;
+  color: #fff;
+}
+
+.btn-close:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px #d53e3e;
+}
+
+
+
+
+.btn-clean {
+  background: #dcd7f2;
+  color: #4e4b66;
+}
+
+.btn-clean:hover {
+  filter: brightness(1.03);
+}
+
+/* Overlay */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+}
+

@@ -1,0 +1,220 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #F5E7C6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "DejaVu Sans Condensed", serif;
+    color: #562f00;
+}
+
+footer {
+    background: #562F00;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 14px;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.login-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    width: 100%;
+}
+
+.form-cadastro {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(86, 47, 0, 0.1);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 450px;
+    margin: 0;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.logo-login {
+    width: 120px;
+    transform: rotate(10deg);
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.login-header h2 {
+    color: #562F00;
+    font-size: 28px;
+    margin: 0 0 8px 0;
+}
+
+.login-header p {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.md3-textfield {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.md3-textfield input {
+    width: 100%;
+    padding: 24px 12px 12px 12px;
+    background: #F5E7C6;
+    border: 2px solid #562F00;
+    border-radius: 8px;
+    font-size: 18px;
+    font-family: inherit;
+    line-height: 1.2;
+    min-height: 56px;
+    color: #562F00;
+    outline: none;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.md3-textfield input:focus {
+    border-color: #7a3f00;
+    box-shadow: 0 2px 6px rgba(86,47,0,0.12);
+}
+
+.md3-textfield label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: rgba(86,47,0,0.85);
+    font-size: 18px;
+    padding: 0 6px;
+    pointer-events: none;
+    z-index: 2;
+    transition: all 0.18s ease;
+}
+
+.md3-textfield input:focus + label,
+.md3-textfield input:not(:placeholder-shown) + label {
+    top: 6px;
+    transform: none;
+    font-size: 12px;
+    color: #562F00;
+    background: #F5E7C6;
+    border-radius: 4px;
+}
+
+.md3-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.md3-checkbox input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #562F00;
+    border-radius: 4px;
+    background: #F5E7C6;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.md3-checkbox input[type="checkbox"]:checked {
+    background: #562F00;
+    border-color: #562F00;
+    position: relative;
+}
+
+.md3-checkbox input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    color: #F5E7C6;
+    font-size: 16px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.md3-checkbox label {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: #562F00;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: #7a3f00;
+    box-shadow: 0 4px 12px rgba(86, 47, 0, 0.3);
+}
+
+.login-options {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.login-options a {
+    color: #562F00;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-options a:hover {
+    color: #7a3f00;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .form-cadastro {
+        padding: 20px;
+    }
+}

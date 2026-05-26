@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Adopt Cat</title>
+    <link rel="icon" href="/image.png" type="image/png" />
+    <link rel="stylesheet" href="/css/principal.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/cards.css" />
+  </head>
+
+  <body>
+    <div id="scrim" onclick="fecharMenu()"></div>
+
+    <nav id="menu">
+      <div class="menu-cabecalho">
+        <img
+          id="gato-cabecalho"
+          src="https://cdn-icons-png.flaticon.com/512/3369/3369473.png"
+          width="50px"
+          height="50px"
+        />
+
+        <div class="menu-cabecalho-textos">
+          <span>Adopt Cat</span>
+          <span id="adocao-subtitulo">Adoção responsável 🐾</span>
+        </div>
+      </div>
+
+      <div class="submenu">
+
+        <div class="menu-divisor"></div>
+
+        <a class="menu-secao">Principal</a>
+        <a class="menu-subitem" href="#adocao" onclick="onclick=irParaCard('adocao'); fecharMenu()">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/25/25694.png"
+            width="20"
+            height="20"
+          />
+          Início
+        </a>
+
+        <div class="menu-divisor"></div>
+
+        <a onclick="irParaCard('adocao'); fecharMenu()" class="menu-secao">Adoção</a>
+        <a onclick="irParaCard('filhotes'); fecharMenu()" class="menu-subitem">
+          <img src="https://images.emojiterra.com/google/noto-emoji/unicode-16.0/bw/512px/1f408-2b1b.png" width="20px" height="20px"/>
+          Filhotes
+        </a>
+        <a onclick="irParaCard('adultos'); fecharMenu()" class="menu-subitem">
+          <img src="https://images.emojiterra.com/microsoft/fluent-emoji/15.1/512px/1f408-2b1b_high_contrast.png" width="20px" height="20px"/>
+          Adultos
+        </a>
+
+        <a onclick="irParaCard('projeto'); fecharMenu()" class="menu-secao">Projeto</a>
+        <a onclick="irParaCard('historia'); fecharMenu()" class="menu-subitem">
+          <img src="https://static.vecteezy.com/system/resources/previews/069/862/496/non_2x/a-black-and-white-icon-of-a-book-free-png.png" width="20px" height="28px"/>
+          Nossa História
+        </a>
+        <a onclick="irParaCard('voluntarios'); fecharMenu()" class="menu-subitem">
+          <img src="https://cdn-icons-png.flaticon.com/512/571/571825.png" width="20px" height="20px"/>
+          Voluntários
+        </a>
+
+        <a onclick="irParaCard('participe'); fecharMenu()" class="menu-secao">Participe</a>
+        <a onclick="irParaCard('apoio'); fecharMenu()" class="menu-subitem">
+          <img src="https://cdn-icons-png.freepik.com/512/1052/1052336.png" width="20px" height="20px"/>
+          Doação
+        </a>
+        <a onclick="irParaCard('contato'); fecharMenu()" class="menu-subitem">
+          <img src="https://www.freepnglogos.com/uploads/logo-telefone-png/icone-telefone-png-download-3.png" width="20px" height="20px"/>
+          Contato
+        </a>
+
+        <div class="menu-divisor"></div>
+
+        <a href="#crudl" onclick="fecharMenu()" class="menu-secao">Gerenciar Gatos</a>
+        <a href="#crudl" onclick="irParaCard('tabela-gatos'); fecharMenu()" class="menu-subitem">
+          <img
+            src="https://images.icon-icons.com/933/PNG/512/add-button-inside-black-circle_icon-icons.com_72881.png"
+            width="20px"
+            height="20px"
+          />
+          Adicionar Gato</a
+        >
+        <a href="#crudl" onclick="fecharMenu()" class="menu-subitem">
+          <img
+            id="hamburguer-listar"
+            src="https://cdn-icons-png.flaticon.com/512/54/54878.png"
+            width="20px"
+            height="20px"
+          />
+          Listar Gatos</a
+        >
+      </div>
+    </nav>
+
+    <header class="cabecalho">
+      <nav class="navbar">
+        <div class="navbar-esquerda">
+          <img
+            id="hamburguer"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Hamburger-menu_-_Delapouite_-_white_-_game-icons.svg/960px-Hamburger-menu_-_Delapouite_-_white_-_game-icons.svg.png"
+            width="40px"
+            height="40px"
+            onclick="abrirMenu()"
+            style="cursor: pointer"
+          />
+          <a href="#" class="gato-inicio" onclick="window.location.reload()">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3369/3369473.png"
+              alt="Gato início"
+              class="nav-icon"
+            />
+          </a>
+          <h1 class="titulo">Adopt Cat - Salvando Vidas</h1>
+        </div>
+
+        <div class="navbar-direita">
+          <a href="TelaLogin.html" class="gato-final">
+            <img
+              id="pata"
+              src="https://cdn-icons-png.flaticon.com/512/4225/4225935.png "
+              alt="Gato fim"
+            />
+            <span class="status-login" id="status-value">Deslogado</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="adopt-description">
+      <div class="card-field">
+        <div class="cards-slider" id="cardsSlider">
+          <div class="description-cards" data-id="adocao">
+            <img src="https://tse1.explicit.bing.net/th/id/OIP.VAIR0gwp7pPbcAmlamExLQHaE7?rs=1&pid=ImgDetMain&o=7&rm=3" alt="" class="description-img"/>
+            <div class="card-content">
+              <h1 class="description-tittle">Adoção</h1>
+              <h2 class="description-subTittle">Como funciona</h2>
+              <p class="description-short">Adotar um gato é um ato de amor e responsabilidade que transforma a vida de um animal e também a sua. No Adopt Cat, acreditamos que cada gatinho merece uma família que o cuide com carinho, paciência e dedicação. Antes de adotar, é importante refletir sobre o compromisso que envolve ter um animal de estimação. Nosso processo de adoção é pensado para garantir que cada gatinho vá para um lar seguro e amoroso, onde possa viver com qualidade de vida e dignidade por muitos anos.</p>
+            </div>
+          </div>
+
+          <div class="description-cards" data-id="filhotes">
+            <img src="https://www.petz.com.br/blog/wp-content/uploads/2022/10/gato-filhote-pode-comer-arroz-final.jpg" alt="" class="description-img"/>
+            <div class="card-content">
+              <h1 class="description-tittle">Filhotes</h1>
+              <h2 class="description-subTittle">Sobre</h2>
+              <p class="description-short">Nossos filhotes são gatinhos resgatados com menos de um ano de idade, cheios de energia, curiosidade e vontade de explorar o mundo. Cada um deles passou por um processo de socialização com voluntários, aprendendo a conviver com pessoas e outros animais. Antes de serem disponibilizados para adoção, todos os filhotes são avaliados por veterinários, vacinados e, quando em idade adequada, castrados. Adotar um filhote é uma experiência única!</p>
+            </div>
+          </div>
+
+          <div class="description-cards" data-id="adultos">
+            <img src="https://img.freepik.com/fotos-premium/coleccion-muchos-gatos-diversas-razas-colores_620650-2299.jpg" alt="Gato adulto" class="description-img"/>
+            <div class="card-content">
+              <h1 class="description-tittle">Adultos</h1>
+              <h2 class="description-subTittle">Sobre</h2>
+              <p class="description-short">Os gatos adultos são frequentemente os mais esquecidos nos abrigos, mas têm imensas qualidades. Já possuem personalidade formada, são mais tranquilos e se adaptam bem a lares calmos. Muitos passaram por situações difíceis como abandono ou maus-tratos, mas demonstram uma resiliência admirável. Adotar um adulto é oferecer uma segunda chance e receber lealdade e gratidão.</p>
+            </div>
+          </div>
+
+          <div class="description-cards" data-id="projeto">
+            <img src="https://images.openai.com/static-rsc-4/_TtniJVfVzJttQOzfMZ521teqTZL4rBTgOTDmX1oozATIRDz9PcweQEwiVny7eSalYOLfM46_hDfOAjG_xnYzVNw8h80XRGPI5tpUlSo6FFDfhSZNzNI58mJcmVTf2TmBJDA4BmZTVdPCUKezr5yBC06hwBKL5gFQ-wpQcO8_3H7Q49Iye2prucEUiroYHts?purpose=fullsize" alt="Projeto Adopt Cat" class="description-img"/>
+            <div class="card-content">
+              <h1 class="description-tittle">Projeto</h1>
+              <h2 class="description-subTittle">Adopt Cat</h2>
+              <p class="description-short">O Adopt Cat é um projeto social dedicado ao resgate, cuidado e adoção responsável de gatos abandonados. Atuamos com voluntários que garantem alimentação, atendimento veterinário e amor. Nosso processo de adoção é cuidadoso para garantir lares seguros e responsáveis.</p>
+            </div>
+          </div>
+
+          <div class="description-cards" data-id="historia">
+            <img src="https://images.openai.com/static-rsc-4/1ZudkdI2nwS61LODkNJxEW_uESq9CL7CCElrp2WHuSdCvph9e_JG3FTwMRPfQgL59LdYobzTc92oWWSi0YkLsAz-TFNzUsEdgOrn7PXDACnKtpBHrLoT3mgEN57K-EzJk8vXLqmxn8zv_e3LLpiMHTq366R163mD94-OJTxrV2ZS4PRi8F7UpSdE03XF58dw?purpose=fullsize" alt="Nossa História" class="description-img"/>
+            <div class="card-content">
+              <h1 class="description-tittle">Nossa História</h1>
+              <h2 class="description-subTittle">Como tudo começou</h2>
+              <p class="description-short">O Adopt Cat nasceu em 2018 da iniciativa de voluntários que decidiram agir contra o abandono de animais. Começou com poucos gatos resgatados e hoje já salvou mais de 300 vidas, criando uma rede de apoio entre voluntários, veterinários e adotantes.</p>
+            </div>
+          </div>
+
+          <div class="description-cards" data-id="voluntarios">
+            <img src="https://images.openai.com/static-rsc-4/5qXVaBrb2PUFfvo8TN9E4TwvztprTL27RazOwDaljrthYBYerx7O5GpK6x38phi7UjgqlTbhGLUTXFM8tQj4jWxWpyfH-GnUBQDbxefhf85TQPbUfDuR5jz6EF6rauo7vVlPHAGVS6fOV8ZlE_IgoBHjys1RD8V_3tVUWkOfeS4aOcGfPWZtjKm5KpT3qpR1?purpose=fullsize" alt="Voluntários" class="description-img"/>
+            <div class="card-content">
+              <h1 class="description-tittle">Voluntários</h1>
+              <h2 class="description-subTittle">O coração do projeto</h2>
+              <p class="description-short">Nossos voluntários são essenciais para o projeto. Eles cuidam dos gatos, ajudam no transporte, divulgação e apoio às famílias adotantes. Qualquer pessoa pode participar, basta ter vontade de ajudar e amor pelos animais.</p>
+            </div>
+          </div>
+
+          <div class="description-cards" data-id="participe">
+            <img src="https://images.openai.com/static-rsc-4/PK5E_ie0psrQ8Ct8WRfAjBgD441-qVlaoB4MM36uacy4yCwO33CMk0wtRGSB5Lr5gkAf59MD0huZk-ZSi5b209mVy04L-wSYKfdpdAt8InuIW1AYHNhsNI6hwTXokzgC7aZrBeRWGJ9cmhg6DpWNTqctmO_XbpPnOS7iVsBqJiAqW97fMdWBA-KVC9LoSfXH?purpose=fullsize" alt="Participe" class="description-img"/>
+            <div class="card-content">
+              <h1 class="description-tittle">Participe</h1>
+              <h2 class="description-subTittle">Faça a diferença</h2>
+              <p class="description-short">Você pode ajudar de várias formas: sendo voluntário, lar temporário ou adotando. Também aceitamos doações de ração, medicamentos e materiais. Cada gesto ajuda a transformar a vida de um gato.</p>
+            </div>
+          </div>
+
+          <div class="description-cards" data-id="apoio">
+            <img src="https://images.openai.com/static-rsc-4/WAKthNHXDCfcFQdEtTqN85qOkGFBUsvJhwmnEhP9flWLm2o79FOJX7bwZTAygjIQ94UT1u8-CtJXhY1FRZX8zhCu5Vk5FRQ8hlkE2KITARlaLsjJkpwXGmFxGDvpoPV3J07mO18tZhj3ql9q_uuOatyWRkuFE7Da-1K2MakEU2s?purpose=inline" alt="Doações" class="description-img"/>
+            <div class="card-content">
+              <h1 class="description-tittle">Doação</h1>
+              <h2 class="description-subTittle">Doe ao projeto</h2>
+              <p class="description-short">O projeto funciona através de doações e voluntariado. Todo valor é usado para alimentação, vacinas, castrações e emergências veterinárias. Também aceitamos ração, areia e itens de higiene. Tudo é feito com transparência.</p>
+            </div>
+          </div>
+
+          <div class="description-cards" data-id="contato">
+            <img src="https://images.openai.com/static-rsc-4/01Of-CiFnzGlgtOhrnqr5IOZuwy3UnJzt0JWTDHCFrZeZDtKnetstArUGGIO09c685lyboc8W4hm--4v1-kkMZZ7hUyTj1Syudk0HxAgLbB5Kh9xJlHBUoe4kha6U79VxADAX0K_Df0dbkNde6l28s1xpstom20la2K6ZQlEexyxAjpd1qiiZRJ-jox9fFut?purpose=fullsize" alt="Contato" class="description-img"/>
+            <div class="card-content">
+              <h1 class="description-tittle">Contato</h1>
+              <h2 class="description-subTittle">Fale conosco</h2>
+              <p class="description-short">Entre em contato pelo e-mail adoptcat@email.com ou redes sociais. Respondemos todas as mensagens com carinho. Também adoramos receber fotos de gatos adotados pelo projeto.</p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <i class="bx bx-chevron-left icon-left" onclick="sliderScrollLeft()"></i>
+
+      <i
+        class="bx bx-chevron-right icon-right"
+        onclick="sliderScrollRight()"
+      ></i>
+    </div>
+
+    <div class="crudl">
+      <div id="crudl" class="addGatos">
+        <h2 class="titulo-sessao">Adicionar Gatos:</h2>
+
+        <form class="formGato" novalidate>
+          <div class="bloco-campo">
+            <div class="campo-texto contornado">
+              <input
+                type="text"
+                id="nome_gato"
+                class="entrada-dados"
+                required
+                placeholder=" "
+              />
+              <label for="nome_gato" class="rotulo">Nome do Gato</label>
+            </div>
+          </div>
+
+          <div class="bloco-campo">
+            <div class="campo-texto contornado">
+              <input
+                type="text"
+                id="raca_gato"
+                class="entrada-dados"
+                required
+                placeholder=" "
+              />
+              <label for="raca_gato" class="rotulo">Raça</label>
+            </div>
+          </div>
+
+          <div class="bloco-campo">
+            <div class="campo-texto contornado">
+              <input
+                type="number"
+                id="idadeGato"
+                class="entrada-dados"
+                required
+                placeholder=" "
+              />
+              <label for="idadeGato" class="rotulo">Idade</label>
+            </div>
+          </div>
+
+          <p class="legenda-sexo">Sexo:</p>
+          <div class="grupo-sexo">
+            <label class="opcao-radio">
+              <input
+                type="radio"
+                name="sexo"
+                value="M"
+                id="sexo_m"
+                required
+              />
+              <span>Masculino</span>
+            </label>
+            <label class="opcao-radio">
+              <input
+                type="radio"
+                name="sexo"
+                value="F"
+                id="sexo_f"
+                required
+              />
+              <span>Feminino</span>
+            </label>
+          </div>
+
+          <div class="acoes-botoes">
+            <button type="submit" class="botao principal">
+              <img
+                id="cadastrarIcon"
+                src="https://cdn-icons-png.flaticon.com/512/69/69539.png"
+                width="15"
+                height="15"
+              />
+              Cadastrar
+            </button>
+            <button type="reset" class="botao secundario">
+              <img
+                id="cancelarIcon"
+                src="https://cdn-icons-png.flaticon.com/512/1/1766.png"
+                width="12"
+                height="12"
+              />
+              Cancelar Ação
+            </button>
+            <button type="button" id="listar" class="botao texto">
+              <img
+                id="listarIcon"
+                src="https://www.vhv.rs/dpng/d/362-3625044_menu-bar-menu-bar-icon-png-transparent-png.png"
+                width="12px"
+                height="12px"
+              />
+              Listar Todos
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <section id="lista-gatos">
+      <table id="tabela-gatos">
+        <tr>
+          <th class="col-selecao">
+            <input type="checkbox" id="selecionar-todos" aria-label="Selecionar todos os gatos">
+          </th>
+          <th onclick="ordenarPorNome()" id="th-nome">
+            Nome <span class="seta">▲</span>
+          </th>
+          <th>Raça</th>
+          <th>Sexo</th>
+          <th>Idade</th>
+          <th>Ações</th>
+        </tr>
+        <tr></tr>
+      </table>
+      <div id="paginacao-footer"></div>
+    </section>
+
+    <footer id="cabeçalho">
+      Estudantes: Kauã Felipe da Cruz - Gustavo Alexandre Fernades - Pedro
+      Henrique Leite da Costa
+    </footer>
+    <script src="../js/Controle.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/backend_cadastro.js"></script>
+  </body>
+</html>

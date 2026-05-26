@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ctrlPLAY | Login</title>
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/log.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <main class="container login-page" role="main">
+
+        <!-- Logo -->
+        <img src="img/logo.png" alt="ctrlPLAY" class="logo">
+
+        <div class="login-main">
+
+            <!-- ESQUERDA -->
+            <div class="login-left">
+                <h1 class="title-lg mb-lg">
+                    Administre seus jogos com um clique
+                </h1>
+            </div>
+
+            <!-- DIREITA -->
+            <div class="login-right">
+
+                <!-- Elemento decorativo -->
+                <img src="img/gradiant_ball.png" class="gradient-ball ball-1" alt="" aria-hidden="true">
+
+                <div class="card login-card">
+                    <div class="login-content">
+
+                        <h2 class="title-md">Login</h2>
+
+                        <p class="text text-sm mb-lg">
+                            Que bom que está de volta!
+                        </p>
+
+                        <form aria-label="Formulário de login">
+
+                          <div class="form-field mb-md">
+                            <input id="usuario" type="text" required>
+                            <label for="usuario">Usuário</label>
+                          </div>
+                      
+                          <div class="form-field mb-md">
+                            <input id="senha" type="password" required>
+                            <label for="senha">Senha</label>
+                          </div>
+                      
+                          <div class="flex align-center gap-sm mb-md">
+                            <input type="checkbox" id="lembre-me">
+                            <label for="lembre-me" class="text-sm text">Lembre-me</label>
+                          </div>
+                      
+                          <button type="submit" id="login" class="btn btn-primary w-full mb-sm"
+                            aria-label="Entrar no sistema">
+                            Login
+                          </button>
+                      
+                        </form>
+
+                        <p class="text-center text-sm text mb-md mt-sm" aria-label="Recuperar senha">
+                            Esqueceu a senha?
+                        </p>
+
+                        <div class="card-footer">
+                            <a href="#">Termos & Condições</a>
+                            <a href="#">Suporte</a>
+                            <a href="#">Sobre</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Elemento decorativo -->
+                <img src="img/gradiant_ball.png" class="gradient-ball ball-2" alt="" aria-hidden="true">
+
+            </div>
+        </div>
+    </main>
+
+    <script src="js/log.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ctrlPLAY | Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="cabecalho" role="banner" aria-label="Cabeçalho do site"></header>
+
+    <!-- Main Content -->
+    <main class="main-content" role="main">
+        <div class="container">
+
+            <!-- Page Title -->
+            <div class="page-header">
+                <h1 class="page-title">Dashboard</h1>
+            </div>
+
+            <!-- Data Table Card -->
+            <div class="card table-card" aria-label="Tabela de jogos">
+
+                <!-- Table Controls -->
+                <div class="table-controls">
+                    <div class="table-controls-left">
+
+                        <div class="table-search">
+                            <label for="search" class="sr-only">Pesquisar jogos</label>
+                            <input type="text" id="search" placeholder="Pesquisar..." class="input-search"
+                                aria-label="Pesquisar jogos">
+                        </div>
+                    </div>
+
+                    <div class="table-controls-right">
+                        <button class="btn btn-add-game" aria-label="Adicionar novo jogo">
+                            <i class="fas fa-plus" aria-hidden="true"></i>
+                            Adicionar jogo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="table-wrapper">
+                    <table class="data-table" aria-describedby="descricao-tabela">
+                        <thead>
+                            <tr>
+                                   <th class="checkbox-cell">
+                                  <input type="checkbox" id="select-all">
+                                </th>
+                                <th role="columnheader" scope="col" data-visibility="true">ID</th>
+                                <th role="columnheader" scope="col" data-visibility="false">Nome</th>
+                                <th role="columnheader" scope="col" data-visibility="true">Categoria</th>
+                                <th role="columnheader" scope="col" data-visibility="false">
+                                    <div class="sort-wrapper">
+                                        <button id="sort" class="action-btn sort up">
+                                            <img alt="Ordenar linhas">
+                                        </button>
+                                        Preço
+                                    </div>
+                                </th>
+                                <th role="columnheader" scope="col" data-visibility="false">Estúdio</th>
+                                <th role="columnheader" scope="col" data-visibility="true">Plataforma/s</th>
+                                <th role="columnheader" scope="col" data-visibility="false">Status</th>
+                                <th role="columnheader" scope="col" data-visibility="false">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="pagination-wrapper">
+                        <div class="pagination-controls">
+                            <span>Linhas por página</span>
+                            <select name="pagination" id="pagination">
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="75">75</option>
+                                <option value="100">100</option>
+
+                            </select>
+                        </div>
+                        <span>1-10 de 100</span>
+                        <div class="arrows-controls">
+                            <button class="action-btn sort">
+                                <img src="img/icons/first-page.png" alt="Primeira página">
+                            </button>
+                            <button class="action-btn sort">
+                                <img src="img/icons/left-arrow.png" alt="Página anterior">
+                            </button>
+                            <button class="action-btn sort">
+                                <img src="img/icons/right-arrow.png" alt="Página seguinte">
+                            </button>
+                            <button class="action-btn sort">
+                                <img src="img/icons/last-page.png" alt="Última página">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Tooltip -->
+        <span id="tooltip" class="">
+            <p>sasaas</p>
+        </span>
+    </main>
+
+    <!-- Footer -->
+    <footer id="rodape" role="contentinfo" aria-label="Rodapé do site"></footer>
+
+    <script src="js/index.js" defer></script>
+</body>
+
+</html>

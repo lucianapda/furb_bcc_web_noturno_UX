@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adocão - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+
+<header id="cabecalho"></header>
+
+<section id="cadastro-de-animal">
+    <h2>Cadastre um animal para adoção</h2>
+    <form id="form-animal" class="form-cadastro">
+        <fieldset>
+            <legend>Cadastre um animal para adotarem</legend>
+            <div class="md3-textfield">
+                <input type="text" id="nome" name="nome" placeholder="" required />
+                <label for="nome">Nome do animal</label>
+            </div>
+
+            <div class="form-row">
+                <div class="md3-textfield">
+                    <select id="especie" name="especie" required>
+                        <option value="" disabled selected>Espécie</option>
+                        <option value="Cachorro">Cachorro</option>
+                        <option value="Gato">Gato</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                    <label for="especie">Espécie</label>
+                </div>
+                <div class="md3-textfield">
+                    <select id="porte" name="porte" required>
+                        <option value="" disabled selected>Porte</option>
+                        <option value="Pequeno">Pequeno</option>
+                        <option value="Médio">Médio</option>
+                        <option value="Grande">Grande</option>
+                    </select>
+                    <label for="porte">Porte</label>
+                </div>
+            </div>
+
+            <div class="md3-textfield">
+                <input type="text" id="foto" name="foto" placeholder="" required />
+                <label for="foto">URL da foto do animal</label>
+            </div>
+
+            <div class="md3-checkbox">
+                <input type="checkbox" id="vacina" name="vacina" />
+                <label for="vacina">Tomou vacina</label>
+            </div>
+
+        </fieldset>
+
+        <div class="form-buttons" style="display: flex; gap: 10px;">
+            <button type="submit" class="btn-submit">Cadastrar Animal</button>
+            <button type="reset" class="btn-clear">Limpar</button>
+        </div>
+    </form>
+</section>
+
+<section id="adote-os">
+    <h2>Adote-os!</h2>
+    
+<div class="adocao-box">
+    <div class="barra-filtros">
+    <div class="filtros-header">
+        <h3 class="titulo-filtros">
+        <i class="fa-solid fa-paw"></i>
+        Filtrar animais
+        </h3>
+    <button type="button" class="btn-limpar-filtros" onclick="limparFiltros()">Limpar filtros</button>
+</div>
+
+<div class="filtros-tabela">
+    <div class="filtro-group">
+    <label for="filtros-especie">Espécie</label>
+    <select id="filtros-especie">
+    <option value="">Todos</option>
+    </select>
+    </div>
+
+    <div class="filtro-group">
+        <label for="filtros-porte">Porte</label>
+        <select id="filtros-porte">
+        <option value="">Todos</option>
+        </select>
+    </div>
+
+    <div class="filtro-group">
+        <label for="filtros-vacinado">Vacinado</label>
+        <select id="filtros-vacinado">
+            <option value="">Todos</option>
+            <option value="sim">Vacinados</option>
+            <option value="nao">Não vacinados</option>
+        </select>
+    </div>
+    </div>
+    </div>
+    
+   <div class="tabela-wrapper">
+    <table id="tabela-animais">
+        <thead>
+        <tr>
+            <th>Foto</th>
+            <th>Nome</th>
+            <th>Espécie</th>
+            <th>Porte</th>
+            <th>Ação</th>
+        </tr>
+        </thead>
+        <tbody id="lista-animais">
+    <!--animais sendo carregados por JS-->
+        </tbody>
+    </table>
+
+    <div class="paginacao">
+        <button type="button" id="btn-pagina-anterior">Anterior</button>
+        <span id="info-pagina">Página 1 de 1</span>
+        <button type="button" id="btn-pagina-proxima">Próxima</button>
+    </div>
+   </div>
+   </div>
+</section>
+
+<div class="wrapper">
+    <main class="content">
+        <section id="quem-somos">
+            <h1>Quem somos</h1>
+            <p>Somos estudantes de Ciência da Computação da FURB - Blumenau, apaixonados por tecnologia e causa animal.
+                Desenvolvemos a Adocão para conectar cães de rua com lares amorosos, usando inovação para fazer a
+                diferença na vida de quem mais precisa.</p>
+        </section>
+        <section id="como-ajudar">
+            <h1>Como você pode ajudar</h1>
+            <p>Adote um amigo! Cadastre cães precisando de lar ou apoie nossa missão. Cada clique aproxima um cãozinho
+                da felicidade. Juntos, transformamos ruas em lares!</p>
+        </section>
+    </main>
+</div>
+
+<footer id="rodape">
+    <!-- fallback footer -->
+    <p>&copy; 2026 Leonardo Schell, César Augusto Floriani, Davi Pinheiro Leal. Todos os direitos reservados</p>
+</footer>
+
+
+<script>
+    const FOTO_USUARIO_LOGADO = 'https://img.freepik.com/vetores-premium/avatar-de-homem-barbudo-foto-generica-de-perfil-masculino_53562-20202.jpg';
+    const FOTO_USUARIO_LEMBRADO = 'https://img.freepik.com/vetores-premium/avatar-de-homem-barbudo-foto-generica-de-perfil-masculino_53562-20202.jpg';
+    const FOTO_VISITANTE = 'https://tse4.mm.bing.net/th/id/OIP.4TTd4k1rfPkny3LQTAPjiwHaIt?rs=1&pid=ImgDetMain&o=7&rm=3';
+
+    function exibirUsuarioNoHeader() {
+        const areaUsuario = document.getElementById('area-usuario');
+
+        if (!areaUsuario) {
+            return;
+        }
+
+        const foto = areaUsuario.querySelector('.auth-foto');
+        const nome = areaUsuario.querySelector('.nome-usuario');
+
+        if (!foto || !nome) {
+            return;
+        }
+
+        let usuario = null;
+        try {
+            usuario = JSON.parse(sessionStorage.getItem('usuarioLogado'));
+        } catch (e) {
+            usuario = null;
+        }
+
+        if (usuario) {
+            foto.src = FOTO_USUARIO_LOGADO;
+            foto.alt = `${usuario.nome}`;
+            nome.textContent = usuario.nome;
+            nome.dataset.email = usuario.email;
+            areaUsuario.title = usuario.email;
+            console.log('✅ Usuário logado:', usuario.nome);
+
+            document.getElementById('logout-area').style.display = 'list-item';
+            document.getElementById('login-area').style.display = 'none';
+
+        } else {
+            const lembrar = localStorage.getItem('lembrarMe') === 'true';
+            const emailSalvo = localStorage.getItem('emailSalvo');
+
+            if (lembrar && emailSalvo) {
+                foto.src = FOTO_USUARIO_LEMBRADO;
+                foto.alt = 'Usuário conhecido';
+                nome.textContent = 'Usuário conhecido';
+                areaUsuario.title = emailSalvo;
+                console.log('✅ Usuário lembrado:', emailSalvo);
+
+                document.getElementById('login-area').style.display = 'list-item';
+                document.getElementById('logout-area').style.display = 'none';
+
+            } else {
+                foto.src = FOTO_VISITANTE;
+                foto.alt = 'Visitante';
+                nome.textContent = 'Visitante';
+                areaUsuario.title = 'Faça login para continuar';
+                console.log('👋 Visitante');
+
+                document.getElementById('login-area').style.display = 'list-item';
+                document.getElementById('logout-area').style.display = 'none';
+            }
+        }
+    }
+
+    function carregarHeaderFooter() {
+        fetch('header.html')
+            .then(response => response.ok ? response.text() : Promise.reject())
+            .then(data => {
+                document.getElementById('cabecalho').innerHTML = data;
+                exibirUsuarioNoHeader();
+            })
+            .catch(() => {
+                console.log('header.html não encontrado');
+            });
+
+        fetch('footer.html')
+            .then(response => response.ok ? response.text() : Promise.reject())
+            .then(data => document.getElementById('rodape').innerHTML = data)
+            .catch(() => console.log('footer.html não encontrado'));
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        carregarHeaderFooter();
+    });
+
+    document.addEventListener('click', function (e) {
+        if (e.target.id === 'btn-logout') {
+            sessionStorage.removeItem('usuarioLogado');
+            alert('Logout realizado com sucesso! 👋');
+            exibirUsuarioNoHeader();
+        }
+    });
+
+    window.addEventListener('storage', function (e) {
+        if (e.key === 'usuarioLogado' || e.key === 'lembrarMe') {
+            exibirUsuarioNoHeader();
+        }
+    });
+
+
+    window.addEventListener('pageshow', function (event) {
+        const lembrar = localStorage.getItem('lembrarMe') === 'true';
+        const loginRecente = sessionStorage.getItem('loginRecente') === 'true';
+
+        if (!lembrar && !loginRecente) {
+            sessionStorage.removeItem('usuarioLogado');
+        }
+
+        if (loginRecente) {
+            sessionStorage.removeItem('loginRecente');
+        }
+
+        if (event.persisted) return;
+        exibirUsuarioNoHeader();
+    });
+</script>
+</body>
+</html>

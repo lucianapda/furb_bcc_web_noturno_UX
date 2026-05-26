@@ -1,0 +1,569 @@
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* MD3 — Paleta primária verde-militar */
+  --md-primary: #4A5E23;
+  --md-primary-hover: #5A7029;
+  --md-primary-active: #38480F;
+  --md-on-primary: #FFFFFF;
+  --md-primary-container: #C5D99A;
+  --md-on-primary-container: #111F00;
+
+  /* Superfícies */
+  --md-surface: #FAFAF4;
+  --md-background: #F3F4EC;
+
+  /* Texto */
+  --md-on-surface: #1A1C16;
+  --md-on-surface-variant: #44483D;
+
+  /* Contorno */
+  --md-outline: #74796B;
+  --md-outline-variant: #C4C8BA;
+
+  /* Erro */
+  --md-error: #B3261E;
+
+  /* MD2 — Tabela */
+  --md2-primary: #636B2F;
+  --md2-surface: #FFFFFF;
+  --md2-divider: #E0E0E0;
+  --md2-on-surface: #212121;
+  --md2-on-surface-secondary: #757575;
+  --md2-row-hover: #F5F5F5;
+
+  --font: 'Roboto', sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--md-background);
+  color: var(--md-on-surface);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   HEADER — MD3 Top App Bar
+   ============================================================ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+  padding: 0 16px;
+  height: 64px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Botão de ícone (hamburger) */
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--md-on-primary);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms;
+  flex-shrink: 0;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+#header h1 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+  flex: 1;
+}
+
+.infoUsuario {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+/* Menu de navegação */
+#menu {
+  background: var(--md-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hidden {
+  display: none;
+}
+
+#navLink {
+  padding: 4px 8px;
+}
+
+#navLink ul {
+  list-style: none;
+  display: flex;
+  gap: 4px;
+}
+
+#navLink ul li a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--md-on-primary);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 150ms;
+}
+
+#navLink ul li a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+#navLink ul li a .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* ============================================================
+   MAIN
+   ============================================================ */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  gap: 32px;
+}
+
+.titulosIndex {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--md-on-surface);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ============================================================
+   FORMULÁRIO — MD3 Outlined Text Fields
+   ============================================================ */
+#formCadastro {
+  background: var(--md-surface);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 560px;
+  width: 100%;
+  align-self: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* MD3 Text Field */
+.md3-field-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.md3-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.md3-input {
+  width: 100%;
+  height: 56px;
+  padding: 28px 48px 8px 16px;
+  font-size: 16px;
+  font-family: var(--font);
+  color: var(--md-on-surface);
+  background: transparent;
+  border: 1px solid var(--md-outline);
+  border-radius: 4px;
+  outline: none;
+  appearance: none;
+  transition: border-color 200ms, border-width 200ms;
+}
+
+.md3-input::placeholder {
+  color: transparent;
+}
+
+.md3-input:hover:not(:focus) {
+  border-color: var(--md-on-surface);
+}
+
+.md3-input:focus {
+  border: 2px solid var(--md-primary);
+  padding: 28px 47px 8px 15px;
+}
+
+/* Label flutuante */
+.md3-label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-family: var(--font);
+  color: var(--md-on-surface-variant);
+  pointer-events: none;
+  background: var(--md-surface);
+  padding: 0 4px;
+  line-height: 1;
+  transition:
+    top 150ms cubic-bezier(0.2, 0, 0, 1),
+    font-size 150ms cubic-bezier(0.2, 0, 0, 1),
+    color 150ms,
+    transform 150ms;
+}
+
+.md3-input:focus~.md3-label,
+.md3-input:not(:placeholder-shown)~.md3-label,
+.md3-label--raised {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 12px;
+}
+
+.md3-input:not(:focus):not(:placeholder-shown)~.md3-label {
+  color: var(--md-on-surface-variant);
+}
+
+.md3-input:focus~.md3-label {
+  color: var(--md-primary);
+}
+
+/* O input date sempre mostra o valor, então o label fica sempre levantado */
+.md3-input--date {
+  color: var(--md-on-surface);
+}
+
+/* Ícone interno */
+.field-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--md-on-surface-variant);
+  font-size: 20px;
+  pointer-events: none;
+}
+
+/* Estado de erro */
+.md3-field-wrapper.error .md3-input {
+  border-color: var(--md-error);
+}
+
+.md3-field-wrapper.error .md3-input~.md3-label {
+  color: var(--md-error);
+}
+
+/* Botões do formulário */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  justify-content: center;
+}
+
+.btn-filled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 24px;
+  border: none;
+  border-radius: 100px;
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: background 150ms;
+}
+
+.btn-filled .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.btn-filled:hover {
+  background: var(--md-primary-hover);
+}
+
+.btn-filled:active {
+  background: var(--md-primary-active);
+}
+
+.btn-tonal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 24px;
+  border: none;
+  border-radius: 100px;
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: background 150ms;
+}
+
+.btn-tonal .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.btn-tonal:hover {
+  background-color: var(--md-primary);
+  color: var(--md-on-primary);
+  filter: brightness(0.95);
+}
+
+#secTabela {
+  max-width: 960px;
+  width: 100%;
+  align-self: center;
+}
+
+.md2-table-container {
+  background: var(--md2-surface);
+  border-radius: 4px;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2),
+    0 1px 1px 0 rgba(0, 0, 0, .14),
+    0 1px 3px 0 rgba(0, 0, 0, .12);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead {
+  background: var(--md2-surface);
+}
+
+th {
+  padding: 0 16px;
+  height: 56px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--md2-on-surface-secondary);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--md2-divider);
+  white-space: nowrap;
+}
+
+td {
+  padding: 0 16px;
+  height: 52px;
+  text-align: left;
+  color: var(--md2-on-surface);
+  border-bottom: 1px solid var(--md2-divider);
+  vertical-align: middle;
+}
+
+tbody tr:hover {
+  background: var(--md2-row-hover);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.btn-md2-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--md2-on-surface-secondary);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms, color 150ms;
+  vertical-align: middle;
+}
+
+.btn-md2-icon:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--md2-on-surface);
+}
+
+.btn-md2-icon.btn-edit:hover {
+  color: var(--md2-primary);
+}
+
+.btn-md2-icon.btn-delete:hover {
+  color: #B3261E;
+}
+
+.btn-md2-icon .material-icons {
+  font-size: 20px;
+}
+
+footer {
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+}
+
+footer::before {
+  content: "";
+  width: 80%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+  #navLink ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #formCadastro {
+    padding: 16px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn-filled,
+  .btn-tonal {
+    width: 100%;
+    justify-content: center;
+  }
+
+  th,
+  td {
+    padding: 0 8px;
+  }
+}
+
+.dialog-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: #1C1B1F;
+  text-align: left;
+  margin-bottom: 16px;
+  line-height: 1.3;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ===== DIVISOR ===== */
+.dialog-divider {
+  height: 1px;
+  background: #CAC4D0;
+  margin: 0 -24px 20px;
+}
+
+/* ===== CORPO ===== */
+.dialog-body {
+  font-size: 14px;
+  color: #49454F;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ===== BOTÕES ===== */
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-dialog-text {
+  height: 40px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 100px;
+  background: transparent;
+  color: var(--md-outline);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.1px;
+  transition: background 150ms;
+}
+
+.btn-dialog-text:hover {
+  background: #F3EFF4;
+}
+
+.btn-dialog-filled {
+  height: 40px;
+  padding: 0 24px;
+  border: none;
+  border-radius: 100px;
+  background: var(--md-primary);
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.1px;
+  transition: background 150ms;
+}
+
+.btn-dialog-filled:hover {
+  background: var(--md-primary-hover);
+}

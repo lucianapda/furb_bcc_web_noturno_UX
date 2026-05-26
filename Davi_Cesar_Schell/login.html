@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adocão - Login</title>
+    <link rel="stylesheet" href="styleLogin.css">
+</head>
+<body>
+
+<main class="login-container">
+    <section class="form-cadastro login-card">
+
+        <header class="login-header">
+            <a href="index.html">
+                <img src="logo_adocao.png" alt="Logo Adocão" class="logo-login">
+            </a>
+            <h2>Faça o Login</h2>
+            <p>Na Adocão, você pode adotar um animalzinho para trazer mais amor à sua vida! Entre na sua conta ou faça seu cadastro agora mesmo.</p>
+        </header>
+
+        <form id="form-login" action="index.html" method="POST">
+
+            <div class="md3-textfield">
+                <input type="email" id="email" name="email" placeholder=" " required aria-required="true" />
+                <label for="email">E-mail</label>
+            </div>
+
+            <div class="md3-textfield">
+                <input type="password" id="password" name="password" placeholder=" " required aria-required="true" />
+                <label for="password">Senha</label>
+            </div>
+
+            <div class="md3-checkbox">
+                <input type="checkbox" id="remember" name="remember" />
+                <label for="remember">Lembre-me</label>
+            </div>
+
+            <button type="submit" class="btn-submit">Entrar</button>
+
+        </form>
+
+        <div class="login-options">
+            <a href="#" class="link-secundario">Esqueceu a senha?</a>
+            <p>Não tem uma conta? <a href="#">Cadastre-se agora</a></p>
+        </div>
+
+    </section>
+</main>
+
+<footer id="rodape">
+    <p>&copy; 2026 Leonardo Schell, César Augusto Floriani, Davi Pinheiro Leal. Todos os direitos reservados</p>
+</footer>
+
+<script src="funcoes_login.js"></script>
+</body>
+</html>

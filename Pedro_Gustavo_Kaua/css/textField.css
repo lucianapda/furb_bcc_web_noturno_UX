@@ -1,0 +1,162 @@
+  :root {
+      --m3-primary: coral;
+      --m3-on-primary: #FFFFFF;
+      --m3-on-surface: #1D1B20;
+      --m3-on-surface-variant: #49454F;
+      --m3-outline: #79747E;
+      --m3-error: #B3261E;
+      --m3-success: #146C43;
+      --m3-font: 'poppins';
+      --bg-page: #fbfafe;
+  }
+
+  body {
+      font-family: var(--m3-font);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: var(--bg-page);
+      margin: 0;
+  }
+
+  /* Container que agrupa o campo e o botão lado a lado */
+  .form-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+  }
+
+  .textfield {
+      position: relative;
+      display: inline-block;
+      width: 320px;
+  }
+
+  .textfieldinput {
+      box-sizing: border-box;
+      width: 100%;
+      height: 56px;
+      padding: 16px 48px 16px 16px;
+      font-family: var(--m3-font);
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      color: var(--m3-on-surface);
+      background-color: white;
+      border: 1px solid var(--m3-outline);
+      border-radius: 4px;
+      outline: none;
+      transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .textfield input {
+      box-sizing: border-box;
+      width: 100%;
+      height: 56px;
+      padding: 16px 48px 16px 16px;
+      font-family: var(--m3-font);
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      color: var(--m3-on-surface);
+      background-color: white;
+      border: 1px solid var(--m3-outline);
+      border-radius: 4px;
+      outline: none;
+      transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .textfield label {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      color: var(--m3-on-surface-variant);
+      pointer-events: none;
+      transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+      padding: 0 4px;
+      background-color: transparent;
+      transform-origin: left top;
+  }
+
+  .textfield .material-symbols-outined {
+      position: absolute;
+      right: 14px;
+      top: 16px;
+      font-size: 24px;
+      user-select: none;
+      pointer-events: none;
+      display: none;
+  }
+
+  .textfield .supporting-text {
+      font-size: 12px;
+      letter-spacing: 0.4px;
+      color: var(--m3-on-surface-variant);
+      padding: 4px 16px 0 16px;
+  }
+
+  /* Foco e preenchido */
+  .textfield input:focus+label,
+  .textfield input:not(:placeholder-shown)+label {
+      top: 0;
+      transform: translateY(-50%) scale(0.75);
+      background-color: var(--bg-page);
+      border: 2px solid var(--m3-primary);
+      border-radius: 4px;
+      color: var(--m3-primary);
+  }
+
+  .textfield input:focus {
+      border: 2px solid var(--m3-primary);
+      padding: 15px 47px 15px 15px;
+  }
+
+  .textfield input:hover:not(:focus) {
+      border-color: var(--m3-on-surface);
+  }
+
+  /* Classes de validação */
+  .textfield.is-invalid input {
+      border-color: var(--m3-error) !important;
+  }
+
+  .textfield.is-invalid label,
+  .textfield.is-invalid input:focus+label {
+      color: var(--m3-error) !important;
+  }
+
+  .textfield.is-invalid .supporting-text {
+      color: var(--m3-error);
+  }
+
+  .textfield.is-invalid .icon-error {
+      display: inline-block;
+      padding-top: 100px;
+      color: var(--m3-error);
+      width: 8%;
+      height: auto;
+  }
+
+  .textfield.is-valid input {
+      border-color: var(--m3-success) !important;
+  }
+
+  .textfield.is-valid label,
+  .textfield.is-valid input:focus+label {
+      color: var(--m3-success) !important;
+  }
+
+  .textfield.is-valid .supporting-text {
+      color: var(--m3-success);
+  }
+
+  .textfield.is-valid .icon-success {
+      display: inline-block;
+      width: 8%;
+      height: auto;
+      color: var(--m3-success);
+  }

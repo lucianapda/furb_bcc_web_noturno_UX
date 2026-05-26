@@ -1,0 +1,228 @@
+@import url(variables.css);
+
+.field {
+    position: relative;
+    margin: 1.25rem 0;
+    font-family: sans-serif;
+}
+
+.field input {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 0.063rem solid var(--dark-orange);
+    border-radius: 0.375rem;
+    outline: none;
+}
+
+.field label {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--light-text);
+    background: var(--white);
+    padding: 0 0.25rem;
+    transition: 0.2s ease;
+    pointer-events: auto;
+}
+
+.field input:focus+label,
+.field input:valid+label {
+    top: -0.08rem;
+    font-size: 0.75rem;
+    color: var(--primary-orange);
+}
+
+.field input:focus {
+    border-color: var(--primary-orange);
+}
+
+.field input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.5rem;
+    padding: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0.25rem;
+    border: 0.125rem solid var(--dark-orange);
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.field input[type="checkbox"]::after {
+    content: "";
+    position: absolute;
+    width: 0.35rem;
+    height: 0.6rem;
+    border: solid var(--white);
+    border-width: 0 0.125rem 0.125rem 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%) scale(0) rotate(45deg);
+    opacity: 0;
+    transition: 0.15s ease;
+}
+
+.field input[type="checkbox"]:checked {
+    background: var(--primary-orange);
+    border-color: var(--primary-orange);
+}
+
+.field input[type="checkbox"]:checked::after {
+    transform: translate(-50%, -60%) scale(1) rotate(45deg);
+    opacity: 1;
+}
+
+.field input[type="checkbox"]+label {
+    position: static;
+    transform: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--dark-text);
+}
+
+.field.select-field::before {
+    transition: opacity .2s cubic-bezier(.2, 0, 0, 1);
+    pointer-events: none;
+}
+
+.field.select-field:hover::before {
+    opacity: 0.04;
+}
+
+.field.select-field select {
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    background: transparent;
+    color: var(--dark-text);
+    cursor: pointer;
+    font-size: 1.17rem;
+}
+
+.field.select-field label {
+    position: absolute;
+    color: var(--light-text);
+    font-size: 1rem;
+    pointer-events: none;
+    transform-origin: left top;
+    transition: transform .2s cubic-bezier(.2, 0, 0, 1), 
+        color .2s cubic-bezier(.2, 0, 0, 1),
+        font-size .2s cubic-bezier(.2, 0, 0, 1);
+
+    z-index: 2;
+}
+
+.field.select-field select:focus+label,
+.field.select-field select:valid+label {
+    transform: translateY(-2.3rem) scale(.75);
+    color: var(--primary-orange);
+}
+
+.select-arrow {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    width: 1rem;
+    height: 1rem;
+
+    transform: translateY(-50%) rotate(0deg);
+    transition: transform .25s cubic-bezier(.2, 0, 0, 1);
+    pointer-events: none;
+}
+
+.field.select-field:focus-within .select-arrow {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.select-arrow svg {
+    width: 100%;
+    height: 100%;
+}
+
+.select-arrow path {
+    stroke: var(--dark-orange);
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.field.select-field:focus-within .select-arrow path {
+    stroke: var(--primary-orange);
+}
+
+.field.select-field select:focus {
+    animation: selectPop .18s cubic-bezier(.2, 0, 0, 1);
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.radio-group-title {
+    font-size: .875rem;
+    color: var(--primary-orange);
+}
+
+.radio-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.radio-item {
+    position: relative;
+}
+
+.radio-item input {
+    position: absolute;
+    opacity: 0;
+}
+
+.radio-item label {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    cursor: pointer;
+    color: var(--dark-text);
+    user-select: none;
+}
+
+.radio-item label::before {
+    content: "";
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: .125rem solid var(--dark-orange);
+}
+
+.radio-item label::after {
+    content: "";
+    position: absolute;
+    left: 0.4rem;
+    top: 40%;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    background: var(--primary-orange);
+    transform:
+        translateY(-50%)
+        scale(0);
+    transition: transform .2s cubic-bezier(.2,0,0,1);
+}
+
+.radio-item input:checked + label::after {
+    transform:
+        translateY(-50%)
+        scale(1);
+}
+
+.radio-item label:hover::before {
+    border-color: var(--primary-orange);
+}
